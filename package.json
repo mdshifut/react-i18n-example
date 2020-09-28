@@ -3,18 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/cli": "^7.11.5",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-intl": "^5.8.3",
     "react-scripts": "3.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "extract": "formatjs extract 'src/**/*.js*' --ignore src/translations/* --out-file src/translations/en.json --id-interpolation-pattern '[sha512:contenthash:base64:6]'  --format crowdin",
+    "compile": "formatjs compile-folder --ast  src/translations  src/compiled-lang --format crowdin"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -30,5 +34,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@formatjs/cli": "^2.12.0",
+    "babel-plugin-react-intl": "^8.1.11",
+    "extract-react-intl-messages": "^4.1.1"
   }
 }
